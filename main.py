@@ -40,13 +40,34 @@ def open_file(file_name):
                                 word_dictionary[word] = 0
                             word_dictionary[word] += 1
 
-    print(word_dictionary)
+    return(word_dictionary)
 
 
+def jaccard_distance(main_dict, novel_dict, word_len):
+    main_set = set()
+    novel_set = set()
 
-def main(filename1, filename2):
-    # open_file(filename1)
-    open_file(filename2)
+    for word in main_dict:
+        if len(word) == word_len:
+            main_set.add(word)
+
+    for word in novel_dict:
+        if len(word) == word_len:
+            novel_set.add(word)
+
+    similarity = (main_set.union(novel_set)) / (main_set.intersection(novel_set))
+
+    distance = 1 - similarity
+
+    # print(f'main_set: {main_set} \n Novel_set: {novel_set}')
+    print(distance)
+
+def main(filename1, filename2, novel1, novel2):
+    main_dict = open_file(filename1)
+    novel_dict = open_file(novel1)
+
+    jaccard_distance(main_dict, novel_dict, 5)
+    # open_file(filename2)
 
 
-main('Jacob Kahn - Great_Expectations.txt', 'Jacob Kahn - Scarlet_Letter.txt')
+main('Jacob Kahn - Great_Expectations.txt', 'Jacob Kahn - Scarlet_Letter.txt', 'Novel1.txt', 'Novel2.txt')
