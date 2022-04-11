@@ -55,7 +55,7 @@ def jaccard_distance(main_dict, novel_dict, word_len):
         if len(word) == word_len:
             novel_set.add(word)
 
-    similarity = (main_set.union(novel_set)) / (main_set.intersection(novel_set))
+    similarity = len((main_set.intersection(novel_set))) / len((main_set.union(novel_set)))
 
     distance = 1 - similarity
 
@@ -63,10 +63,19 @@ def jaccard_distance(main_dict, novel_dict, word_len):
     print(distance)
 
 def main(filename1, filename2, novel1, novel2):
-    main_dict = open_file(filename1)
-    novel_dict = open_file(novel1)
+    file1_dict = open_file(filename1)
+    file2_dict = open_file(filename2)
+    novel1_dict = open_file(novel1)
+    novel2_dict = open_file(novel2)
 
-    jaccard_distance(main_dict, novel_dict, 5)
+    # DISTANCE FOR NOVEL 1
+    jaccard_distance(file1_dict, novel1_dict, 5)
+    jaccard_distance(file2_dict, novel1_dict, 5)
+
+    # DISTANCE FOR NOVEL 2
+    jaccard_distance(file1_dict, novel2_dict, 5)
+    jaccard_distance(file2_dict, novel2_dict, 5)
+
     # open_file(filename2)
 
 
