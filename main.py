@@ -62,6 +62,13 @@ def jaccard_distance(main_dict, novel_dict, word_len):
     # print(f'main_set: {main_set} \n Novel_set: {novel_set}')
     print(distance)
 
+
+def weighted_jaccard(main_dict, novel_dict, word_len):
+    main_set = set()
+    novel_set = set()
+
+
+
 def main(filename1, filename2, novel1, novel2):
     file1_dict = open_file(filename1)
     file2_dict = open_file(filename2)
@@ -71,33 +78,33 @@ def main(filename1, filename2, novel1, novel2):
     # DISTANCE FOR NOVEL 1
     # jaccard_distance(file1_dict, novel1_dict, 5)
     # jaccard_distance(file2_dict, novel1_dict, 5)
-    # jaccard_distance(file1_dict, novel2_dict, 5)
-    # jaccard_distance(file2_dict, novel2_dict, 5)
-    #
+    jaccard_distance(file1_dict, novel2_dict, 5)
+    jaccard_distance(file2_dict, novel2_dict, 5)
+    print()
     # jaccard_distance(file1_dict, novel1_dict, 6)
     # jaccard_distance(file2_dict, novel1_dict, 6)
-    # jaccard_distance(file1_dict, novel2_dict, 6)
-    # jaccard_distance(file2_dict, novel2_dict, 6)
-    #
+    jaccard_distance(file1_dict, novel2_dict, 6)
+    jaccard_distance(file2_dict, novel2_dict, 6)
+    print()
     # jaccard_distance(file1_dict, novel1_dict, 7)
     # jaccard_distance(file2_dict, novel1_dict, 7)
-    # jaccard_distance(file1_dict, novel2_dict, 7)
-    # jaccard_distance(file2_dict, novel2_dict, 7)
-    #
+    jaccard_distance(file1_dict, novel2_dict, 7)
+    jaccard_distance(file2_dict, novel2_dict, 7)
+    print()
     # jaccard_distance(file1_dict, novel1_dict, 8)
     # jaccard_distance(file2_dict, novel1_dict, 8)
-    # jaccard_distance(file1_dict, novel2_dict, 8)
-    # jaccard_distance(file2_dict, novel2_dict, 8)
-    #
+    jaccard_distance(file1_dict, novel2_dict, 8)
+    jaccard_distance(file2_dict, novel2_dict, 8)
+    print()
     # jaccard_distance(file1_dict, novel1_dict, 9)
     # jaccard_distance(file2_dict, novel1_dict, 9)
-    # jaccard_distance(file1_dict, novel2_dict, 9)
-    # jaccard_distance(file2_dict, novel2_dict, 9)
-    #
+    jaccard_distance(file1_dict, novel2_dict, 9)
+    jaccard_distance(file2_dict, novel2_dict, 9)
+    print()
     # jaccard_distance(file1_dict, novel1_dict, 10)
     # jaccard_distance(file2_dict, novel1_dict, 10)
-    # jaccard_distance(file1_dict, novel2_dict, 10)
-    # jaccard_distance(file2_dict, novel2_dict, 10)
+    jaccard_distance(file1_dict, novel2_dict, 10)
+    jaccard_distance(file2_dict, novel2_dict, 10)
 
     # open_file(filename2)
 
