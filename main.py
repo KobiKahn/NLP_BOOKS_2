@@ -69,14 +69,36 @@ def main(filename1, filename2, novel1, novel2):
     novel2_dict = open_file(novel2)
 
     # DISTANCE FOR NOVEL 1
-    jaccard_distance(file1_dict, novel1_dict, 5)
-    jaccard_distance(file2_dict, novel1_dict, 5)
-
-    # DISTANCE FOR NOVEL 2
-    jaccard_distance(file1_dict, novel2_dict, 5)
-    jaccard_distance(file2_dict, novel2_dict, 5)
+    # jaccard_distance(file1_dict, novel1_dict, 5)
+    # jaccard_distance(file2_dict, novel1_dict, 5)
+    # jaccard_distance(file1_dict, novel2_dict, 5)
+    # jaccard_distance(file2_dict, novel2_dict, 5)
+    #
+    # jaccard_distance(file1_dict, novel1_dict, 6)
+    # jaccard_distance(file2_dict, novel1_dict, 6)
+    # jaccard_distance(file1_dict, novel2_dict, 6)
+    # jaccard_distance(file2_dict, novel2_dict, 6)
+    #
+    # jaccard_distance(file1_dict, novel1_dict, 7)
+    # jaccard_distance(file2_dict, novel1_dict, 7)
+    # jaccard_distance(file1_dict, novel2_dict, 7)
+    # jaccard_distance(file2_dict, novel2_dict, 7)
+    #
+    # jaccard_distance(file1_dict, novel1_dict, 8)
+    # jaccard_distance(file2_dict, novel1_dict, 8)
+    # jaccard_distance(file1_dict, novel2_dict, 8)
+    # jaccard_distance(file2_dict, novel2_dict, 8)
+    #
+    # jaccard_distance(file1_dict, novel1_dict, 9)
+    # jaccard_distance(file2_dict, novel1_dict, 9)
+    # jaccard_distance(file1_dict, novel2_dict, 9)
+    # jaccard_distance(file2_dict, novel2_dict, 9)
+    #
+    # jaccard_distance(file1_dict, novel1_dict, 10)
+    # jaccard_distance(file2_dict, novel1_dict, 10)
+    # jaccard_distance(file1_dict, novel2_dict, 10)
+    # jaccard_distance(file2_dict, novel2_dict, 10)
 
     # open_file(filename2)
-
 
 main('Jacob Kahn - Great_Expectations.txt', 'Jacob Kahn - Scarlet_Letter.txt', 'Novel1.txt', 'Novel2.txt')
