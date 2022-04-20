@@ -66,6 +66,37 @@ def jaccard_distance(main_dict, novel_dict, word_len):
 def weighted_jaccard(main_dict, novel_dict, word_len):
     main_set = set()
     novel_set = set()
+    min_list = []
+    max_list = []
+
+    for word in main_dict:
+        if len(word) == word_len:
+            main_set.add(word)
+
+    for word in novel_dict:
+        if len(word) == word_len:
+            novel_set.add(word)
+
+    main_list = list(main_set)
+    novel_list = list(novel_set)
+
+    union_set = main_set.union(novel_set)
+
+    for word in union_set:
+        main_count = main_list.count(word)
+        novel_count = novel_list.count(word)
+        if main_count >= novel_count:
+            max_list.append(main_count)
+            min_list.append(novel_count)
+        else:
+            max_list.append(novel_count)
+            min_list.append(main_count)
+
+
+    weighted_distance = 1 - ( sum(min_list) / sum(max_list) )
+
+
+    print(weighted_distance)
 
 
 
@@ -74,38 +105,70 @@ def main(filename1, filename2, novel1, novel2):
     file2_dict = open_file(filename2)
     novel1_dict = open_file(novel1)
     novel2_dict = open_file(novel2)
+    # print(file1_dict)
 
-    # DISTANCE FOR NOVEL 1
+    # WEIGHTED DISTANCE FOR NOVEL 1
+    weighted_jaccard(file1_dict, novel1_dict, 5)
+    weighted_jaccard(file2_dict, novel1_dict, 5)
+    weighted_jaccard(file1_dict, novel2_dict, 5)
+    weighted_jaccard(file2_dict, novel2_dict, 5)
+    print()
+    weighted_jaccard(file1_dict, novel1_dict, 6)
+    weighted_jaccard(file2_dict, novel1_dict, 6)
+    weighted_jaccard(file1_dict, novel2_dict, 6)
+    weighted_jaccard(file2_dict, novel2_dict, 6)
+    print()
+    weighted_jaccard(file1_dict, novel1_dict, 7)
+    weighted_jaccard(file2_dict, novel1_dict, 7)
+    weighted_jaccard(file1_dict, novel2_dict, 7)
+    weighted_jaccard(file2_dict, novel2_dict, 7)
+    print()
+    weighted_jaccard(file1_dict, novel1_dict, 8)
+    weighted_jaccard(file2_dict, novel1_dict, 8)
+    weighted_jaccard(file1_dict, novel2_dict, 8)
+    weighted_jaccard(file2_dict, novel2_dict, 8)
+    print()
+    weighted_jaccard(file1_dict, novel1_dict, 9)
+    weighted_jaccard(file2_dict, novel1_dict, 9)
+    weighted_jaccard(file1_dict, novel2_dict, 9)
+    weighted_jaccard(file2_dict, novel2_dict, 9)
+    print()
+    weighted_jaccard(file1_dict, novel1_dict, 10)
+    weighted_jaccard(file2_dict, novel1_dict, 10)
+    weighted_jaccard(file1_dict, novel2_dict, 10)
+    weighted_jaccard(file2_dict, novel2_dict, 10)
+
+    ##########################################################################################################
+
+    # NORMAL DISTANCE
     # jaccard_distance(file1_dict, novel1_dict, 5)
     # jaccard_distance(file2_dict, novel1_dict, 5)
-    jaccard_distance(file1_dict, novel2_dict, 5)
-    jaccard_distance(file2_dict, novel2_dict, 5)
-    print()
+    # jaccard_distance(file1_dict, novel2_dict, 5)
+    # jaccard_distance(file2_dict, novel2_dict, 5)
+    # print()
     # jaccard_distance(file1_dict, novel1_dict, 6)
     # jaccard_distance(file2_dict, novel1_dict, 6)
-    jaccard_distance(file1_dict, novel2_dict, 6)
-    jaccard_distance(file2_dict, novel2_dict, 6)
-    print()
+    # jaccard_distance(file1_dict, novel2_dict, 6)
+    # jaccard_distance(file2_dict, novel2_dict, 6)
+    # print()
     # jaccard_distance(file1_dict, novel1_dict, 7)
     # jaccard_distance(file2_dict, novel1_dict, 7)
-    jaccard_distance(file1_dict, novel2_dict, 7)
-    jaccard_distance(file2_dict, novel2_dict, 7)
-    print()
+    # jaccard_distance(file1_dict, novel2_dict, 7)
+    # jaccard_distance(file2_dict, novel2_dict, 7)
+    # print()
     # jaccard_distance(file1_dict, novel1_dict, 8)
     # jaccard_distance(file2_dict, novel1_dict, 8)
-    jaccard_distance(file1_dict, novel2_dict, 8)
-    jaccard_distance(file2_dict, novel2_dict, 8)
-    print()
+    # jaccard_distance(file1_dict, novel2_dict, 8)
+    # jaccard_distance(file2_dict, novel2_dict, 8)
+    # print()
     # jaccard_distance(file1_dict, novel1_dict, 9)
     # jaccard_distance(file2_dict, novel1_dict, 9)
-    jaccard_distance(file1_dict, novel2_dict, 9)
-    jaccard_distance(file2_dict, novel2_dict, 9)
-    print()
+    # jaccard_distance(file1_dict, novel2_dict, 9)
+    # jaccard_distance(file2_dict, novel2_dict, 9)
+    # print()
     # jaccard_distance(file1_dict, novel1_dict, 10)
     # jaccard_distance(file2_dict, novel1_dict, 10)
-    jaccard_distance(file1_dict, novel2_dict, 10)
-    jaccard_distance(file2_dict, novel2_dict, 10)
-
-    # open_file(filename2)
+    # jaccard_distance(file1_dict, novel2_dict, 10)
+    # jaccard_distance(file2_dict, novel2_dict, 10)
 
 main('Jacob Kahn - Great_Expectations.txt', 'Jacob Kahn - Scarlet_Letter.txt', 'Novel1.txt', 'Novel2.txt')
